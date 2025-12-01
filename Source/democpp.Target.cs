@@ -11,7 +11,10 @@ public class democppTarget : TargetRules
 #if UE_5_4_OR_LATER
 		IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
 		WindowsPlatform.bStrictConformanceMode = true;
+		bOverrideBuildEnvironment = true;
+		CppStandard = CppStandardVersion.Cpp20;
 #endif
+		
 
 		bUsePCHFiles = false;
 		ExtraModuleNames.AddRange( new string[] { "democpp" } );

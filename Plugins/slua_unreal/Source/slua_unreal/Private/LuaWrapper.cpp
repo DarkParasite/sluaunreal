@@ -66,6 +66,8 @@ namespace NS_SLUA {
     #include "LuaWrapper5.4.inc"
 #elif ((ENGINE_MINOR_VERSION==6) && (ENGINE_MAJOR_VERSION==5))
     #include "LuaWrapper5.6.inc"
+#elif ((ENGINE_MINOR_VERSION==7) && (ENGINE_MAJOR_VERSION==5))
+    #include "LuaWrapper5.7.inc"
 #endif
 
     static inline FSoftObjectPtr* __newFSoftObjectPtr() {
@@ -126,7 +128,7 @@ namespace NS_SLUA {
             auto argc = lua_gettop(L);
             if (argc == 1) {
                 CheckSelf(FSoftObjectPtr);
-                auto ret = __newFSoftObjectPath();
+                auto ret = new FSoftObjectPath();
                 *ret = self->ToSoftObjectPath();
                 LuaObject::push<FSoftObjectPath>(L, "FSoftObjectPath", ret, UD_AUTOGC | UD_VALUETYPE);
                 return 1;

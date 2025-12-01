@@ -41,7 +41,7 @@
 #include "Misc/Paths.h"
 #include "Widgets/Input/SButton.h"
 #include "Widgets/Input/SSlider.h"
-#include "Stats/Stats2.h"
+#include "Stats/Stats.h"
 #include "Developer/DesktopPlatform/Public/DesktopPlatformModule.h"
 #include "SluaProfilerDataManager.h"
 #include "Runtime/Launch/Resources/Version.h"
@@ -1368,7 +1368,7 @@ void SProfilerInspector::CombineSameFileInfo(FProflierMemNode& proflierMemNode, 
 
     if (shownParentFileName.Num() > maxMemoryFile)
     {
-        shownParentFileName.RemoveAt(maxMemoryFile, shownParentFileName.Num() - maxMemoryFile, false);
+        shownParentFileName.RemoveAt(maxMemoryFile, shownParentFileName.Num() - maxMemoryFile, EAllowShrinking::No);
     }
 }
 
